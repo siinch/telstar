@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Folder Include="Pages\Routing" />
-<<<<<<< HEAD
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Models\Integration" />
