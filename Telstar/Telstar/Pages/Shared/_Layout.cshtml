@@ -8,21 +8,22 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Telstar.styles.css" asp-append-version="true" />
 </head>
-<body content="width=100%">
-<div class="container">
+<body>
+<div class="container" style="background-color: #d63384">
     <header>
-        <div class="container d-flex justify-content-between">
-            <img src="images/telstar.png"/>
-            <p>TELSTAR LOGSTICS</p>
+        <div class="container d-flex justify-content-between" style="height: 200px">
+            <img src="~/images/telstar.png" />
+            <h1>TELSTAR LOGSTICS</h1>
             <a class="nav-link text-dark" href="/Welcome">BACK</a>
         </div>
     </header>
-    <div class="container" content="width=100%">
+    <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 </div>
+
 <style>
     body {background-color: #d63384;} 
 </style>

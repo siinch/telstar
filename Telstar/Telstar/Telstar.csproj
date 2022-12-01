@@ -10,4 +10,12 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Routing" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\telstar.png" />
+  </ItemGroup>
+
 </Project>
