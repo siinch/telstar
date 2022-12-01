@@ -23,7 +23,7 @@ namespace Telstar.Controllers
         }
 
         [HttpGet(Name = "FindRoute")]
-        public async Task<ActionResult<IEnumerable<Costs>>> FindRoutes(List<Parcel> parcelList, string startCity, string destinationCity)
+        public async Task<ActionResult<IEnumerable<Costs>>> FindRoutes(List<Parcel> parcelList, int startCity, int destinationCity)
         {
             // TODO: Change the return type to IEnumerable<model with retun body like nodes, total price, total time>
             var result = await _ShippingIntegrationController.FindRoutes(parcelList, startCity, destinationCity);

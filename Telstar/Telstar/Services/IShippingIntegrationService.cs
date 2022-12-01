@@ -4,6 +4,6 @@ namespace Telstar.Services
 {
     public interface IShippingIntegrationService
     {
-        Task<Costs> FindRoutes(List<Parcel> parcelList, string startCity, string destinationCity);
+        Task<Costs> FindRoutes(List<Parcel> parcelList, int startCity, int destinationCity);
     }
 }
