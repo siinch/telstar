@@ -9,14 +9,7 @@ namespace Telstar.Repository
             new InternalConnection
             {
                 Id = new Guid(),
-                FromCity = new City {
-                    Id = 30,
-                    Name = "Tanger"
-                },
-                ToCity= new City
-                {
-                    Id = 
-                }
+                
             }
         };
 
