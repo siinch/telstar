@@ -11,23 +11,49 @@
 <body>
     <div class="container" style="background-color: #d63384">
     <header>
+<<<<<<< HEAD
         <div class="container d-flex justify-content-between">
                 <img src="images/telstar.png" />
             <p>TELSTAR LOGSTICS</p>
                 <a class="nav-link text-dark" href="/Welcome">BACK</a>
         </div>
+=======
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" , style="background-color: #d63384">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation" alig>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                          
+                    </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Welcome">Back</a>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+        </nav>
+>>>>>>> ac0de940a166b4087e944da1d4fe3fca3cdfe46f
     </header>
     <div class="container" style="background-color: #d63384">
         <main role="main" class="pb-3" >
             @RenderBody()
         </main>
     </div>
+<<<<<<< HEAD
+=======
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Telstar - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+>>>>>>> ac0de940a166b4087e944da1d4fe3fca3cdfe46f
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
