@@ -1,14 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Telstar.Models;
 
 namespace Telstar.Controllers;
 
 public class SearchController : Controller
 {
     [Route("Search")] 
-    public IActionResult SearchRoutes()
+    public IActionResult CalculateRoutes(SearchModel model)
     {
-        
-        return View();
+        Console.WriteLine(model == null);
+        Console.WriteLine(model.DestinationCity);
+        Console.WriteLine(model.OriginCity);
+        return View("Login");
     }
     
 }

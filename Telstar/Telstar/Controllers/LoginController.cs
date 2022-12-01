@@ -13,9 +13,9 @@ public class LoginController : Controller
     [HttpPost]
     public ActionResult SubmitLogin(LoginModel loginModel)
     {
-        Console.WriteLine(loginModel == null);
-        Console.WriteLine(loginModel.Username);
-        Console.WriteLine(loginModel.Password);
-        return View("SearchRoutes"); // Go to the search page
+        return View("SearchRoutes");
+        /*if (loginModel.Password == "test") 
+            return View("SearchRoutes"); // Go to the search page
+        return View("Login");*/
     }
 }

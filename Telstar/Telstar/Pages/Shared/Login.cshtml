@@ -8,7 +8,7 @@
     {
         <div class="form-group">
             <label class="control-label" for="@Html.IdFor(x => x.Username)">Email</label>
-            @Html.TextBoxFor(x => x.Username, new {@class = "form-control", type = "email"})
+            @Html.TextBoxFor(x => x.Username, new {@class = "form-control", type = "username"})
             <div class="help-block">
                 @Html.ValidationMessageFor(x => x.Username)
             </div>
