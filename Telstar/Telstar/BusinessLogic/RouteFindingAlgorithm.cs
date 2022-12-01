@@ -30,7 +30,11 @@ public class RouteFindingAlgorithm
 
     public List<InternalConnection> CalculateRoute(City origin, City destination)
     {
-        return new PathFinder().ShortestPathFunction(new Graph(_connectionRepository.GetInternalConnections()), origin, destination).connections;
+        var pathFinder = new PathFinder();
+        var graph = new Graph(_connectionRepository.GetInternalConnections());
+        var parcelRoute = pathFinder.ShortestPathFunction(graph, origin, destination);
+        var connections = parcelRoute?.connections;
+        return connections;
     }
 }
 
