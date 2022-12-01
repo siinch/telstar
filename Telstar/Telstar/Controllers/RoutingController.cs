@@ -7,21 +7,10 @@ namespace Telstar.Controllers
 {
     public class RoutingController : Controller
     {
-
+        
         public IActionResult Index()
         {
             return View("Login");
-        }
-
-        public void Test()
-        {
-            
-        }
-
-        [Route("Search")] 
-        public IActionResult SearchRoutes()
-        {
-            return View();
         }
 
         // For each page add a method like this

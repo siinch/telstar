@@ -4,21 +4,21 @@
     ViewBag.Title = "test";
 }
 
-<div>
-    <h3>Login Form</h3>
-    <table>
-            <tr>
-                <td>@Html.DisplayTextFor(model => model.Username)</td>
-                <td><input type="text" asp-for="@Model.Username" /></td>
-            </tr>
-            <tr>
-                <td>@Html.DisplayTextFor(model => model.Username)</td>
-                <td><input type="password" asp-for="@Model.Password" /></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td><input type="submit" value="Login" onclick="location.href='@Url.Action("SearchRoutes", "Routing")'"/></td>
-                
-            </tr>
-        </table>
-</div>
+@using (Html.BeginForm("SubmitLogin", "Login"))
+    {
+        <div class="form-group">
+            <label class="control-label" for="@Html.IdFor(x => x.Username)">Email</label>
+            @Html.TextBoxFor(x => x.Username, new {@class = "form-control", type = "email"})
+            <div class="help-block">
+                @Html.ValidationMessageFor(x => x.Username)
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="@Html.IdFor(x => x.Password)">Password</label>
+            @Html.PasswordFor(x => x.Password, new {@class = "form-control"})
+            <div class="help-block">
+                @Html.ValidationMessageFor(x => x.Password)
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    }

@@ -10,10 +10,10 @@
 <body height: 100%;>
 
 <div class="row">
-    <div class="col">
+    <div class="col" style="width: 100px">
         <form method="post">
             <fieldset>
-                <legend>Add Customer</legend>
+                <legend>Find Parcel Route</legend>
                 <div>
                     <label for="Origin City">Origin City:</label>
                     <input type="text" name="OriginCity" value=""/>
@@ -26,22 +26,32 @@
                     <label for="Weight">Weight (lbs):</label>
                     <input type="text" name="Weight" value=""/>
                 </div>
-                <div>
-                    <label for="Weight">Weight (lbs):</label>
-                    <input type="text" name="Weight" value=""/>
+                <div class="row" style="padding: 20px">
+                    <div class="col" style="margin: 10px">
+                        <label for="Weight">Width:</label>
+                        <input type="text" name="Width" style="width: 60px"/>
+                    </div>
+                    <div class="col" style="padding: 10px">
+                        <label for="Weight">Height:</label>
+                        <input type="text" name="Height" value="" style="width: 60px"/>
+                    </div>
+                    <div class="col" style="margin: 10px">
+                        <label for="Weight">Length:</label>
+                        <input type="text" name="Length" style="width: 60px"/>
+                    </div>
                 </div>
+                
                 <div>
                     <label>&nbsp;</label>
                     <input type="submit" value="Search" class="submit"/>
                 </div>
             </fieldset>
         </form>
-    
     </div>
-    <div class="col">1</div>
-    <div class="col">2</div>
-    <div class="col">3</div>
-</div> 
+    <div class="col" style="margin: 40px; width: 1400px">
+        <img src="~/images/AfricaMap.png"/>
+    </div>
+</div>
 
 </body>
 </html>
