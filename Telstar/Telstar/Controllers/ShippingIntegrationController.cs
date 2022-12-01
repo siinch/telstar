@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Telstar.Models.Integration;
 using Telstar.Services;
 
@@ -11,24 +11,26 @@ namespace Telstar.Controllers
     [Route("[controller]")]
     public class ShippingIntegrationController : ControllerBase
     {
-        private readonly IShippingIntegrationService _ShippingIntegrationController;
+        private readonly IShippingIntegrationService _ShippingIntegrationService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ShippingIntegrationController"/> class.
         /// </summary>
         /// <param name="ShippingIntegrationController">Implementation of <see cref="IShippingIntegrationService"/> class.</param>>
-        public ShippingIntegrationController(IShippingIntegrationService ShippingIntegrationController)
+        public ShippingIntegrationController(IShippingIntegrationService ShippingIntegrationService)
         {
             _ShippingIntegrationController = ShippingIntegrationController;
+            _ShippingIntegrationService = ShippingIntegrationService;
         }
 
-        [HttpGet(Name = "FindRoute")]
-        public async Task<ActionResult<IEnumerable<Costs>>> FindRoutes(List<Parcel> parcelList, int startCity, int destinationCity)
+        [HttpPost(Name = "FindCosts")]
+        public Costs FindRoutes(List<Parcel> parcelList, int startCity, int destinationCity)
         {
             // TODO: Change the return type to IEnumerable<model with retun body like nodes, total price, total time>
             var result = await _ShippingIntegrationController.FindRoutes(parcelList, startCity, destinationCity);
+            var result = _ShippingIntegrationService.FindRoutes(parcelList, startCity, destinationCity);
 
-            return Ok(result);
+            return result;
         }
     }
 
