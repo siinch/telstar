@@ -10,6 +10,13 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Compile Remove="Pages\Routing\**" />
+    <Content Remove="Pages\Routing\**" />
+    <EmbeddedResource Remove="Pages\Routing\**" />
+    <None Remove="Pages\Routing\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\" />
