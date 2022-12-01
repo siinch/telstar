@@ -9,6 +9,13 @@ namespace Telstar.Controllers
         {
             return "This is the default page";
         }
+
+        [Route("Login")] 
+        public IActionResult LoginPage()
+        {
+            // Put the name of your .cshtml file inside this View string (The cshtml must be inside the pages/shared folder!)
+            return View("Login");
+        }
         
         // For each page add a method like this
         [Route("Welcome")] 
