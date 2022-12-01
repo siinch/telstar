@@ -9,25 +9,25 @@
     <link rel="stylesheet" href="~/Telstar.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <div class="container" style="background-color: #d63384">
+<div class="container" style="background-color: #d63384">
     <header>
         <div class="container d-flex justify-content-between">
-                <img src="images/telstar.png" />
+            <img src="images/telstar.png"/>
             <p>TELSTAR LOGSTICS</p>
-                <a class="nav-link text-dark" href="/Welcome">BACK</a>
+            <a class="nav-link text-dark" href="/Welcome">BACK</a>
         </div>
     </header>
     <div class="container" style="background-color: #d63384">
-        <main role="main" class="pb-3" >
+        <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    </div>
+</div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

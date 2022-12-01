@@ -10,8 +10,12 @@ namespace Telstar.Controllers
 
         public IActionResult Index()
         {
-            LoginModel model = new LoginModel(NullLogger<LoginModel>.Instance);
-            return View("Login", model);
+            return View("Login");
+        }
+
+        public void Test()
+        {
+            
         }
 
         [Route("Search")] 
@@ -20,13 +24,6 @@ namespace Telstar.Controllers
             return View();
         }
 
-        [Route("Login")] 
-        public IActionResult Login()
-        {
-            LoginModel model = new LoginModel(NullLogger<LoginModel>.Instance);
-            return View(model);
-        }
-        
         // For each page add a method like this
         [Route("Welcome")] 
         public IActionResult WelcomePage()

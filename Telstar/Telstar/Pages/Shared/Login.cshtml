@@ -1,8 +1,7 @@
-﻿@page
-@model LoginModel
+﻿@model LoginModel
 
 @{
-    ViewData["Title"] = "Home page";
+    ViewBag.Title = "test";
 }
 
 
@@ -12,21 +11,19 @@
 </div>
 <div>
     <h3>Login Form</h3>
-    @Model.Msg
-    <form method="post" asp-page="Index">
-        <table>
+    <table>
             <tr>
-                <td>Username</td>
+                <td>@Html.DisplayTextFor(model => model.Username)</td>
                 <td><input type="text" asp-for="@Model.Username" /></td>
             </tr>
             <tr>
-                <td>Password</td>
+                <td>@Html.DisplayTextFor(model => model.Username)</td>
                 <td><input type="password" asp-for="@Model.Password" /></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td><input type="submit" value="Login" /></td>
+                <td><input type="submit" value="Login" onclick="location.href='@Url.Action("SearchRoutes", "Routing")'"/></td>
+                
             </tr>
         </table>
-    </form>
 </div>

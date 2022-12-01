@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Telstar.Pages
 {
-    public class LoginModel : PageModel
+    public class LoginModel
     {
         [BindProperty]
         public string Username { get; set; }
@@ -26,7 +26,7 @@ namespace Telstar.Pages
 
         }
 
-        public IActionResult OnPost()
+        /*public IActionResult OnPost()
         {
 
             byte[] salt =
@@ -56,6 +56,6 @@ namespace Telstar.Pages
                 Msg = "Invalid";
                 return Page();
             }
-        }
+        }*/
     }
 }
