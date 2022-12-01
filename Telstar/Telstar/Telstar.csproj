@@ -14,4 +14,8 @@
     <Folder Include="Pages\Routing" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\images\telstar.png" />
+  </ItemGroup>
+
 </Project>
