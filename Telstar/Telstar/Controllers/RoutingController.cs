@@ -7,14 +7,14 @@ namespace Telstar.Controllers
 {
     public class RoutingController : Controller
     {
-        
+
         public IActionResult Index()
         {
             return View("Login");
         }
 
         // For each page add a method like this
-        [Route("Welcome")] 
+        [Route("Welcome")]
         public IActionResult WelcomePage()
         {
             // Put the name of your .cshtml file inside this View string (The cshtml must be inside the pages/shared folder!)
@@ -33,6 +33,10 @@ namespace Telstar.Controllers
             return View("RouteResults");
         }
 
+        [Route("Confirm")]
+        public IActionResult ConfirmPage() {
+            return View("Confirm");
+        }
 
     }
 }
