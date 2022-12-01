@@ -11,7 +11,7 @@ public class SearchController : Controller
         Console.WriteLine(model == null);
         Console.WriteLine(model.DestinationCity);
         Console.WriteLine(model.OriginCity);
-        return View("Login");
+        return View("RouteResults");
     }
     
 }
