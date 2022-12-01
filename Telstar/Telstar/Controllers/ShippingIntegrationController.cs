@@ -7,7 +7,6 @@ namespace Telstar.Controllers
     /// <summary>
     /// The controller for ShippingIntegration.
     /// </summary>
-    [Route("")]
     [ApiController]
     public class ShippingIntegrationController : ControllerBase
     {
@@ -24,12 +23,12 @@ namespace Telstar.Controllers
 
      
         [HttpPost("FindCosts")]
-        public JsonResult FindRoutes(IntegrationRequest integrationRequest)
+        public Costs FindRoutes(IntegrationRequest integrationRequest)
         {
             // TODO: Change the return type to IEnumerable<model with retun body like nodes, total price, total time>
             var result = _ShippingIntegrationService.FindRoutes(integrationRequest.Parcels, integrationRequest.StartCityId, integrationRequest.DestinationCityId);
 
-            return new JsonResult(result);
+            return result;
         }
     }
 
