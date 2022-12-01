@@ -10,18 +10,21 @@
         <div class="col d-flex align-items-center justify-content-center" style="height:50px">
             <h3>Best</h3>
             <img src="~/images/best.png" class="h-100"/>
+            <h5>@ViewData["bestTime"] hours, $@ViewData["bestPrice"]</h5>
         </div>
     </div>
     <div class="row">
         <div class="col d-flex align-items-center justify-content-center" style="height:50px">
             <h3>Fastest</h3>
             <img src="~/images/fastest.png" class="h-100" />
+            <h5>@ViewData["fastestTime"] hours, $@ViewData["fastestPrice"]</h5>
         </div>
     </div>
     <div class="row">
         <div class="col d-flex align-items-center justify-content-center" style="height:50px">
             <h3>Cheapest</h3>
             <img src="~/images/cheapest.png" class="h-100" />
+            <h5>@ViewData["cheapestTime"] hours, $@ViewData["cheapestPrice"]</h5>
         </div>
     </div>
 </div>
