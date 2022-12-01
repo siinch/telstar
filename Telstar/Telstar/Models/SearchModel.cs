@@ -10,7 +10,8 @@ public class SearchModel
     public double Width { set; get; }
     public double Height { set; get; }
     public double Length { set; get; }
-    
+    public Boolean Recommended { get; set; }
+
     [HttpPost]
     public IActionResult CalculateRoute()
     {

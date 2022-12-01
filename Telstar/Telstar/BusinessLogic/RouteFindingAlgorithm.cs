@@ -28,9 +28,9 @@ public class RouteFindingAlgorithm
         return new List<InternalConnection>();
     }
 
-    public List<InternalConnection> CalculateRoute(City origin, City destination)
+    public ParcelRoute CalculateRoute(City origin, City destination)
     {
-        return new PathFinder().ShortestPathFunction(new Graph(_connectionRepository.GetInternalConnections()), origin, destination).connections;
+        return new PathFinder().ShortestPathFunction(new Graph(_connectionRepository.GetInternalConnections()), origin, destination);
     }
 }
 
@@ -57,9 +57,10 @@ public class Graph {
     }
 }
 
-class ParcelRoute : IComparable
+public class ParcelRoute : IComparable
 {
     public List<InternalConnection> connections;
+    public bool RecommendedShipping { get; set; } = false;
 
     public ParcelRoute(InternalConnection connection)
     {
@@ -71,9 +72,19 @@ class ParcelRoute : IComparable
         this.connections = connections;
     }
 
-    public double GetCost()
+    public double GetTravelTime()
     {
-        return connections.Sum(edge => edge.Distance);
+        return connections.Sum(edge => edge.Distance * 4);
+    }
+
+    public double GetPrice()
+    {
+        return connections.Sum(edge => edge.Distance * 3) + (RecommendedShipping ? 10 : 0);
+    }
+
+    public double GetAPICallPrice()
+    {
+        return GetPrice() * 1.05f;
     }
 
     protected bool Equals(ParcelRoute other)
@@ -96,7 +107,7 @@ class ParcelRoute : IComparable
 
     public int CompareTo(object? obj)
     {
-        return GetCost().CompareTo(((obj as ParcelRoute)!).GetCost());
+        return GetTravelTime().CompareTo(((obj as ParcelRoute)!).GetTravelTime());
     }
 
     public InternalConnection GetLast()

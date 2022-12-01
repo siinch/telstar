@@ -56,6 +56,9 @@
                         @Html.ValidationMessageFor(x => x.Length)
                     </div>
                 </div>
+                <div class="form-group">
+                    <input id="CheckBox2" type="checkbox" name="CheckBox2" /><label for="@Html.IdFor(x => x.Recommended)">Recommended Shipping</label>
+                </div>
                 <button type="submit" class="btn btn-primary">Find Route</button>
             }
     </div>

@@ -1,6 +1,7 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model Telstar.Models.RouteResultsModel
 @{
     ViewData["Title"] = "Route Results";
 }
@@ -10,21 +11,21 @@
         <div class="col d-flex align-items-center justify-content-center" style="height:50px">
             <h3>Best</h3>
             <img src="~/images/best.png" class="h-100"/>
-            <h5>@ViewData["bestTime"] hours, $@ViewData["bestPrice"]</h5>
+            <h5>@Html.DisplayFor(model => model.BestTravelTime) hours, @Html.DisplayFor(model => model.BestPrice)$</h5>
         </div>
     </div>
     <div class="row">
         <div class="col d-flex align-items-center justify-content-center" style="height:50px">
             <h3>Fastest</h3>
             <img src="~/images/fastest.png" class="h-100" />
-            <h5>@ViewData["fastestTime"] hours, $@ViewData["fastestPrice"]</h5>
+            <h5>@Html.DisplayFor(model => model.BestTravelTime) hours, @Html.DisplayFor(model => model.BestPrice)$</h5>
         </div>
     </div>
     <div class="row">
         <div class="col d-flex align-items-center justify-content-center" style="height:50px">
             <h3>Cheapest</h3>
             <img src="~/images/cheapest.png" class="h-100" />
-            <h5>@ViewData["cheapestTime"] hours, $@ViewData["cheapestPrice"]</h5>
+            <h5>@Html.DisplayFor(model => model.BestTravelTime) hours, @Html.DisplayFor(model => model.BestPrice)$</h5>
         </div>
     </div>
 </div>
