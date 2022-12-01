@@ -35,6 +35,11 @@ namespace Telstar.Controllers
             return View("Welcome");
         }
 
+        [Route("Results")]
+        public IActionResult RouteResultsPage()
+        {
+            return View("RouteResults");
+        }
 
 
     }
