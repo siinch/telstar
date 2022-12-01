@@ -1,4 +1,5 @@
 using Telstar;
+using Telstar.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSession();
+
+builder.Services.AddScoped<IShippingIntegrationService, ShippingIntegrationService>();
 
 builder.Services.AddMvc();
 
