@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Telstar.Pages
 {
-    public class IndexModel : PageModel
+    public class LoginModel : PageModel
     {
         [BindProperty]
         public string Username { get; set; }
@@ -12,11 +12,11 @@ namespace Telstar.Pages
         [BindProperty]
         public string Password { get; set; }
 
-        public string Msg { get; set; }
+        public string Msg { get; set; } = "test";
 
-        private readonly ILogger<IndexModel> _logger;
+        private readonly ILogger<LoginModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public LoginModel(ILogger<LoginModel> logger)
         {
             _logger = logger;
         }
