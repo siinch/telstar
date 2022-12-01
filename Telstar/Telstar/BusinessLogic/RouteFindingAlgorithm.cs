@@ -5,12 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Numerics;
+using Telstar.Repository;
 using Route = Telstar.Models.Route;
 
 namespace Telstar.BusinessLogic;
 
 public class RouteFindingAlgorithm
 {
+    private ConnectionRepository _connectionRepository = new ConnectionRepository();
     public List<InternalConnection> CalculateFastestRoute(String originCityName, String destinationCityName, bool recommendedShippingRequired)
     {
         return CalculateCheapestRoute(originCityName, destinationCityName, recommendedShippingRequired);
@@ -24,6 +26,11 @@ public class RouteFindingAlgorithm
     public List<InternalConnection> CalculateCheapestRoute(String originCityName, String destinationCityName, bool recommendedShippingRequired)
     {
         return new List<InternalConnection>();
+    }
+
+    public List<InternalConnection> CalculateRoute(City origin, City destination)
+    {
+        return new PathFinder().ShortestPathFunction(new Graph(_connectionRepository.GetInternalConnections()), origin, destination).connections;
     }
 }
 
@@ -40,10 +47,12 @@ public class Graph {
     public Dictionary<City, HashSet<InternalConnection>> AdjacencyList { get; } = new();
 
     public void AddEdge(InternalConnection connection, City city) {
-        if (AdjacencyList[city] == null) AdjacencyList[city] = new HashSet<InternalConnection>();
+        if (!AdjacencyList.ContainsKey(city)) AdjacencyList[city] = new HashSet<InternalConnection>();
         var newConnection = new InternalConnection();
         newConnection.FromCity = city;
-        newConnection.ToCity = connection.FromCity == city ? connection.ToCity : connection.FromCity;
+        newConnection.ToCity = connection.FromCity.Equals(city) ? connection.ToCity : connection.FromCity;
+        newConnection.Distance = connection.Distance;
+        newConnection.Id = connection.Id;
         AdjacencyList[city].Add(newConnection);
     }
 }
@@ -111,13 +120,14 @@ class PathFinder
         {
             iterations += 1;
             var route = queue.Dequeue();
+            if (route.GetLast().ToCity.Equals(target)) return route;
             
             foreach(var neighbor in graph.AdjacencyList[route.GetLast().ToCity])
             {
                 var newRoute = new List<InternalConnection>(route.connections);
                 newRoute.Add(neighbor);
                 ParcelRoute newParcelRoute = new ParcelRoute(newRoute);
-                if (neighbor.ToCity == target) return newParcelRoute;
+                if (neighbor.ToCity.Equals(target)) return newParcelRoute;
                 queue.Enqueue(new ParcelRoute(newRoute));
             }
         }
