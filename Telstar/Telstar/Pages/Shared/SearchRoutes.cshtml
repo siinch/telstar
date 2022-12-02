@@ -25,42 +25,42 @@
             {
                 <div class="form-group">
                     <label class="control-label" for="@Html.IdFor(x => x.OriginCity)">Origin City</label>
-                    @Html.TextBoxFor(x => x.OriginCity, new {@class = "form-control", type = "text"})
+                    @Html.TextBoxFor(x => x.OriginCity, new {@class = "form-control", type = "text", style = "font-size: 200%"})
                     <div class="help-block">
                         @Html.ValidationMessageFor(x => x.DestinationCity)
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="@Html.IdFor(x => x.DestinationCity)">Destination City</label>
-                    @Html.TextBoxFor(x => x.DestinationCity, new {@class = "form-control", type = "text"})
+                    @Html.TextBoxFor(x => x.DestinationCity, new {@class = "form-control", type = "text", style = "font-size: 200%"})
                     <div class="help-block">
                         @Html.ValidationMessageFor(x => x.DestinationCity)
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="@Html.IdFor(x => x.Weight)">Weight (lbs)</label>
-                    @Html.TextBoxFor(x => x.Weight, new {@class = "form-control", type = "number"})
+                    @Html.TextBoxFor(x => x.Weight, new {@class = "form-control", type = "number", style = "font-size: 200%"})
                     <div class="help-block">
                         @Html.ValidationMessageFor(x => x.Weight)
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="@Html.IdFor(x => x.Width)">Width (cm)</label>
-                    @Html.TextBoxFor(x => x.Width, new {@class = "form-control", type = "number"})
+                    @Html.TextBoxFor(x => x.Width, new {@class = "form-control", type = "number", style = "font-size: 200%"})
                     <div class="help-block">
                         @Html.ValidationMessageFor(x => x.Width)
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="@Html.IdFor(x => x.Height)">Height (cm)</label>
-                    @Html.TextBoxFor(x => x.Height, new {@class = "form-control", type = "number"})
+                    @Html.TextBoxFor(x => x.Height, new {@class = "form-control", type = "number", style = "font-size: 200%"})
                     <div class="help-block">
                         @Html.ValidationMessageFor(x => x.Height)
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="@Html.IdFor(x => x.Length)">Length (cm)</label>
-                    @Html.TextBoxFor(x => x.Length, new {@class = "form-control", type = "number"})
+                    @Html.TextBoxFor(x => x.Length, new {@class = "form-control", type = "number", style = "font-size: 200%"})
                     <div class="help-block">
                         @Html.ValidationMessageFor(x => x.Length)
                     </div>
@@ -89,7 +89,7 @@
                 <button style="font-size: 200%" type="submit" class="btn btn-primary">Find Route</button>
             }
     </div>
-    <div class="col md-n3" style="margin-top: -150px; width: 1400px">
+    <div class="col md-n3" style="width: 1400px">
         <img src="~/images/AfricaMap.png"/>
     </div>
 </div>
