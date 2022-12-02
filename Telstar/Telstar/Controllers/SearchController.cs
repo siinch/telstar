@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
 using Telstar.BusinessLogic;
 using Telstar.Models;
 using Telstar.Repository;
@@ -23,14 +24,13 @@ public class SearchController : Controller
             var result = _algorithm.CalculateRoute(originCity, destinationCity);
             if (result == null) throw new NullReferenceException();
             result.RecommendedShipping = model.Recommended;
-            result.Weapons = model.Weapons;
             result.RefrigeratedGoods = model.RefrigeratedGoods;
             result.LiveAnimals= model.LiveAnimals;
             result.CautiousParcels = model.CautiousParcels;
-            result.Weight = model.Weight;
-            result.Height = model.Height;
-            result.Width = model.Width;
-            result.Length = model.Length;
+            result.Weight = Math.Abs(Decimal.Round(decimal.Parse(model.Weight, CultureInfo.InvariantCulture.NumberFormat), 2));
+            result.Height = Math.Abs(Decimal.Round(decimal.Parse(model.Height, CultureInfo.InvariantCulture.NumberFormat), 2));
+            result.Width = Math.Abs(Decimal.Round(decimal.Parse(model.Width, CultureInfo.InvariantCulture.NumberFormat), 2));
+            result.Length = Math.Abs(Decimal.Round(decimal.Parse(model.Length, CultureInfo.InvariantCulture.NumberFormat), 2));
             return View("RouteResults", new RouteResultsModel(result, result, result));
         }
         catch (Exception e)

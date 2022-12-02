@@ -4,7 +4,7 @@ namespace Telstar.Models;
 
 public class RouteResultsModel
 {
-    public double BestPrice { get; set; }
+    public decimal BestPrice { get; set; }
     public double BestTravelTime { get; set; }
     public ParcelRoute Route { get; set; }
 
