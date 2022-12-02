@@ -71,10 +71,10 @@ public class ParcelRoute : IComparable
     public bool LiveAnimals { get; set; }
     public bool CautiousParcels { get; set; }
     public bool RefrigeratedGoods { get; set; }
-    public double Weight { set; get; }
-    public double Width { set; get; }
-    public double Height { set; get; }
-    public double Length { set; get; }
+    public decimal Weight { set; get; }
+    public decimal Width { set; get; }
+    public decimal Height { set; get; }
+    public decimal Length { set; get; }
 
     public ParcelRoute(InternalConnection connection)
     {
@@ -91,7 +91,7 @@ public class ParcelRoute : IComparable
         return connections.Sum(edge => edge.Distance * 4);
     }
 
-    public double GetPrice()
+    public decimal GetPrice()
     {
         var initialPrice = connections.Sum(edge => edge.Distance * 3);
         var price = initialPrice
@@ -100,12 +100,12 @@ public class ParcelRoute : IComparable
             + (LiveAnimals ? initialPrice * 0.5 : 0)
             + (RefrigeratedGoods ? initialPrice * 0.1 : 0);
         
-        return Math.Round(price);
+        return (decimal)Math.Round(price);
     }
 
-    public double GetAPICallPrice()
+    public decimal GetAPICallPrice()
     {
-        return GetPrice() * 1.05f;
+        return GetPrice() * (decimal)1.05;
     }
 
     protected bool Equals(ParcelRoute other)
