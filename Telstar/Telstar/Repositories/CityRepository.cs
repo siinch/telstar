@@ -173,5 +173,11 @@ namespace Telstar.Repository
             var city = Cities.Find(x => x.Id.Equals(id));
             return city;
         }
+
+        public City GetCityByName(String name)
+        {
+            var city = Cities.Find(x => x.Name.ToLower().Equals(name.ToLower()));
+            return city;
+        }
     }
 }
