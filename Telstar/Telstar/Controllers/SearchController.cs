@@ -21,6 +21,14 @@ public class SearchController : Controller
             var result = _algorithm.CalculateRoute(originCity, destinationCity);
             if (result == null) throw new NullReferenceException();
             result.RecommendedShipping = model.Recommended;
+            result.Weapons = model.Weapons;
+            result.RefrigeratedGoods = model.RefrigeratedGoods;
+            result.LiveAnimals= model.LiveAnimals;
+            result.CautiousParcels = model.CautiousParcels;
+            result.Weight = model.Weight;
+            result.Height = model.Height;
+            result.Width = model.Width;
+            result.Length = model.Length;
             return View("RouteResults", new RouteResultsModel(result, result, result));
         }
         catch (Exception e)

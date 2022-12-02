@@ -66,6 +66,14 @@ public class ParcelRoute : IComparable
 {
     public List<InternalConnection> connections;
     public bool RecommendedShipping { get; set; } = false;
+    public bool Weapons { get; set; }
+    public bool LiveAnimals { get; set; }
+    public bool CautiousParcels { get; set; }
+    public bool RefrigeratedGoods { get; set; }
+    public double Weight { set; get; }
+    public double Width { set; get; }
+    public double Height { set; get; }
+    public double Length { set; get; }
 
     public ParcelRoute(InternalConnection connection)
     {
@@ -84,7 +92,17 @@ public class ParcelRoute : IComparable
 
     public double GetPrice()
     {
-        return connections.Sum(edge => edge.Distance * 3) + (RecommendedShipping ? 10 : 0);
+        var price = connections.Sum(edge => edge.Distance * 3)
+            + (RecommendedShipping ? 10 : 0)
+            + (CautiousParcels ? 10 : 0)
+            + (Weapons ? 10 : 0)
+            + (LiveAnimals ? 10 : 0)
+            + (RefrigeratedGoods ? 10 : 0)
+            * (Weight > 1 ? ((Weight / 50) + 1) : 1);
+        
+        var sizeMod = (Height * Width * Length) > 1 ? (((Height * Width * Length) / 50) + 1) : 1;
+        price *= sizeMod;
+        return Math.Round(price);
     }
 
     public double GetAPICallPrice()

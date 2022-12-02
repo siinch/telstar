@@ -44,9 +44,9 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="@Html.IdFor(x => x.Height)">Height (cm)</label>
-                    @Html.TextBoxFor(x => x.Width, new {@class = "form-control", type = "number"})
+                    @Html.TextBoxFor(x => x.Height, new {@class = "form-control", type = "number"})
                     <div class="help-block">
-                        @Html.ValidationMessageFor(x => x.Width)
+                        @Html.ValidationMessageFor(x => x.Height)
                     </div>
                 </div>
                 <div class="form-group">
@@ -57,28 +57,23 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input id="CheckBox2" type="checkbox" name="CheckBox2" for="@Html.CheckBoxFor(x => x.Recommended)"/>
-                    <label>Recommended Shipping</label>
+                    <input type="checkbox" asp-for="Recommended" />
+                    <label for="@Html.IdFor(x => x.Recommended)">Recommended</label>
                 </div>
-                <span>Parcel types:</span>
                 <div class="form-group">
-                    <input type="checkbox" />
+                    <input type="checkbox" asp-for="Weapons" />
                     <label for="@Html.IdFor(x => x.Weapons)">Weapons</label>
                 </div>
                 <div class="form-group">
-                    <input type="checkbox" />
-                    <label for="@Html.IdFor(x => x.LiveAnimals)">Live animal</label>
-                </div>
-                 <div class="form-group">
-                    <input type="checkbox" />
+                    <input type="checkbox" asp-for="LiveAnimals" />
                     <label for="@Html.IdFor(x => x.LiveAnimals)">Live animal</label>
                 </div>
                 <div class="form-group">
-                    <input type="checkbox" />
+                    <input type="checkbox" asp-for="CautiousParcels" />
                     <label for="@Html.IdFor(x => x.CautiousParcels)">Cautious parcels</label>
                 </div>
                 <div class="form-group">
-                    <input type="checkbox" />
+                    <input type="checkbox" asp-for="RefrigeratedGoods"/>
                     <label for="@Html.IdFor(x => x.RefrigeratedGoods)">Refridrerated goods</label>
                 </div>
 
