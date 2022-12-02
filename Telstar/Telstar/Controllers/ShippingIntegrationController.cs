@@ -1,5 +1,9 @@
+using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
+using Telstar.BusinessLogic;
+using Telstar.Models;
 using Telstar.Models.Integration;
+using Telstar.Repository;
 using Telstar.Services;
 
 namespace Telstar.Controllers
@@ -23,13 +27,34 @@ namespace Telstar.Controllers
 
      
         [HttpPost("FindCosts")]
-        public Costs FindRoutes(IntegrationRequest integrationRequest)
+        public Models.Integration.Costs FindRoutes(IntegrationRequest request)
         {
-            // TODO: Change the return type to IEnumerable<model with retun body like nodes, total price, total time>
-            var result = _ShippingIntegrationService.FindRoutes(integrationRequest.Parcels, integrationRequest.StartCityId, integrationRequest.DestinationCityId);
 
-            return result;
+            var originCity = _cityRepo.GetCityById(request.StartCityId);
+            var destinationCity = _cityRepo.GetCityById(request.DestinationCityId);
+            var result = _algorithm.CalculateRoute(originCity, destinationCity);
+            if (result == null) throw new NullReferenceException();
+            // TODO: Change the return type to IEnumerable<model with retun body like nodes, total price, total time
+
+            Models.Integration.Costs cost = new Models.Integration.Costs();
+            var reqPrice = result.GetPrice() * 7.08 * 1.05;
+            cost.Price = reqPrice.ToString();
+            cost.Time = (float)result.GetTravelTime();
+            return cost;
+        }
+
+        private RouteFindingAlgorithm _algorithm = new RouteFindingAlgorithm();
+        private CityRepository _cityRepo = new CityRepository();
+        private ConnectionRepository _conRepo = new ConnectionRepository();
+
+        private SearchModel mapRequestToSearchModel(IntegrationRequest request)
+        {
+            SearchModel mappedRequest = new SearchModel();
+         
+            
+            return mappedRequest;
         }
     }
+
 
 }
