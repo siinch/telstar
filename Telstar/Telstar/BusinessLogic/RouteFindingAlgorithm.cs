@@ -30,6 +30,8 @@ public class RouteFindingAlgorithm
 
     public ParcelRoute CalculateRoute(City origin, City destination)
     {
+        if (origin.Id == destination.Id)
+            return null;
         var pathFinder = new PathFinder();
         var graph = new Graph(_connectionRepository.GetInternalConnections());
         var parcelRoute = pathFinder.ShortestPathFunction(graph, origin, destination);
@@ -124,9 +126,16 @@ class PathFinder
     public ParcelRoute ShortestPathFunction(Graph graph, City start, City target)
     {
         var queue = new PriorityQueue<ParcelRoute>();
-        foreach (InternalConnection connection in graph.AdjacencyList[start])
+        try
         {
-            queue.Enqueue(new ParcelRoute(connection));
+            foreach (InternalConnection connection in graph.AdjacencyList[start])
+            {
+                queue.Enqueue(new ParcelRoute(connection));
+            }
+        }
+        catch(Exception e)
+        {
+            return null;
         }
 
         int iterations = 0;
