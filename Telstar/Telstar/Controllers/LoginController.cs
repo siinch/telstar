@@ -32,7 +32,7 @@ public class LoginController : Controller
 
 
 
-        if (hash.Equals(hashed))
+        if (hash.Equals(hashed) && loginModel.Username != null)
         {
             HttpContext.Session.SetString("username", loginModel.Username);
             return View("SearchRoutes");
