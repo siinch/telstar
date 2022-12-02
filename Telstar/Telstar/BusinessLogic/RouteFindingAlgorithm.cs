@@ -7,6 +7,7 @@ using System.Text;
 using System.Numerics;
 using Telstar.Repository;
 using Route = Telstar.Models.Route;
+using NuGet.Protocol.Plugins;
 
 namespace Telstar.BusinessLogic;
 
@@ -92,16 +93,13 @@ public class ParcelRoute : IComparable
 
     public decimal GetPrice()
     {
-        var price = connections.Sum(edge => edge.Distance * 3)
+        var initialPrice = connections.Sum(edge => edge.Distance * 3);
+        var price = initialPrice
             + (RecommendedShipping ? 10 : 0)
-            + (CautiousParcels ? 10 : 0)
-            + (Weapons ? 10 : 0)
-            + (LiveAnimals ? 10 : 0)
-            + (RefrigeratedGoods ? 10 : 0)
-            * (Weight > 1 ? ((Weight / 50) + 1) : 1);
+            + (CautiousParcels ? initialPrice * 0.75 : 0)
+            + (LiveAnimals ? initialPrice * 0.5 : 0)
+            + (RefrigeratedGoods ? initialPrice * 0.1 : 0);
         
-        var sizeMod = (Height * Width * Length) > 1 ? (((Height * Width * Length) / 50) + 1) : 1;
-        price *= sizeMod;
         return Math.Round(price);
     }
 

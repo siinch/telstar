@@ -24,7 +24,6 @@ public class SearchController : Controller
             var result = _algorithm.CalculateRoute(originCity, destinationCity);
             if (result == null) throw new NullReferenceException();
             result.RecommendedShipping = model.Recommended;
-            result.Weapons = model.Weapons;
             result.RefrigeratedGoods = model.RefrigeratedGoods;
             result.LiveAnimals= model.LiveAnimals;
             result.CautiousParcels = model.CautiousParcels;
