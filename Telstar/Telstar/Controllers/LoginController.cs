@@ -38,6 +38,7 @@ public class LoginController : Controller
             return View("SearchRoutes");
         }
        
+        HttpContext.Session.Clear();
         return View("Login");
     }
 }
