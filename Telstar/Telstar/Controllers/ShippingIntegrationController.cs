@@ -31,9 +31,15 @@ namespace Telstar.Controllers
         {
 
             var originCity = _cityRepo.GetCityById(request.StartCityId);
-            var destinationCity = _cityRepo.GetCityById(request.DestinationCityId);
+            var destinationCity = _cityRepo.GetCityById(request.DestinationCityId);  
             var result = _algorithm.CalculateRoute(originCity, destinationCity);
-            if (result == null) throw new NullReferenceException();
+            if (result == null)
+            {
+                Models.Integration.Costs failedCost = new Models.Integration.Costs();
+                failedCost.Price = "-1";
+                failedCost.Time = -1;
+                return failedCost;
+            }
             // TODO: Change the return type to IEnumerable<model with retun body like nodes, total price, total time
 
             Models.Integration.Costs cost = new Models.Integration.Costs();
