@@ -14,13 +14,20 @@ public class SearchController : Controller
     [Route("Search")] 
     public IActionResult CalculateRoutes(SearchModel model)
     {
-        var originCity = _cityRepo.GetCityByName(model.OriginCity);
-        var destinationCity = _cityRepo.GetCityByName(model.DestinationCity);
-        var result = _algorithm.CalculateRoute(originCity, destinationCity);
-
-        result.RecommendedShipping = true;
-        
-        return View("RouteResults", new RouteResultsModel(result, result, result));
+        try
+        {
+            var originCity = _cityRepo.GetCityByName(model.OriginCity);
+            var destinationCity = _cityRepo.GetCityByName(model.DestinationCity);
+            var result = _algorithm.CalculateRoute(originCity, destinationCity);
+            if (result == null) throw new NullReferenceException();
+            result.RecommendedShipping = true;
+            return View("RouteResults", new RouteResultsModel(result, result, result));
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return View("SearchRoutes");
+        }
     }
     
 }
