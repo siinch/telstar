@@ -19,17 +19,17 @@ namespace Telstar.Repository
             new City
             {
                 Id = 2,
-                Name = "The Canary Islands"
+                Name = "Canary Islands"
             },
             new City
             {
                 Id = 3,
-                Name = "Marrakesh"
+                Name = "Morocco"
             },
             new City
             {
                 Id = 4,
-                Name = "Dakar"
+                Name = "Cape Verde"
             },
             new City
             {
@@ -39,12 +39,12 @@ namespace Telstar.Repository
             new City
             {
                 Id = 6,
-                Name = "Guld Kysten"
+                Name = "Goald Coast"
             },
             new City
             {
                 Id = 7,
-                Name = "Slavekysten"
+                Name = "Slave Coast"
             },
             new City
             {
@@ -54,22 +54,22 @@ namespace Telstar.Repository
             new City
             {
                 Id = 9,
-                Name = "Luanda"
-            },
-            new City
-            {
-                Id = 10,
-                Name = "Hvalbugten"
-            },
-            new City
-            {
-                Id = 11,
                 Name = "Congo"
             },
             new City
             {
+                Id = 10,
+                Name = "Whalefish Bay"
+            },
+            new City
+            {
+                Id = 11,
+                Name = "Kandjama"
+            },
+            new City
+            {
                 Id = 12,
-                Name = "Wadai"
+                Name = "Ain-Galaka"
             },
             new City
             {
@@ -79,32 +79,32 @@ namespace Telstar.Repository
             new City
             {
                 Id = 14,
-                Name = "Omdurman"
+                Name = "Egypt"
             },
             new City
             {
                 Id = 15,
-                Name = "Darfur"
+                Name = "Dar-Fur"
             },
             new City
             {
                 Id = 16,
-                Name = "Bahrel Ghazal"
+                Name = "Bahr El Ghasal"
             },
             new City
             {
                 Id = 17,
-                Name = "Kabalo"
+                Name = "Ocomba"
             },
             new City
             {
                 Id = 18,
-                Name = "Viktoria Faldene"
+                Name = "Victoria Falls"
             },
             new City
             {
                 Id = 19,
-                Name = "Dragebjerget"
+                Name = "Dragon Mountain"
             },
             new City
             {
@@ -114,12 +114,12 @@ namespace Telstar.Repository
             new City
             {
                 Id = 21,
-                Name = "Viktoria Søen"
+                Name = "Lake Victoria"
             },
             new City
             {
                 Id = 22,
-                Name = "Suakik"
+                Name = "Suakin"
             },
             new City
             {
@@ -134,32 +134,32 @@ namespace Telstar.Repository
             new City
             {
                 Id = 25,
-                Name = "Amatave"
+                Name = "Tamatave"
             },
             new City
             {
                 Id = 26,
-                Name = "Kap St. Marie"
+                Name = "Cape St. Marie"
             },
             new City
             {
                 Id = 27,
-                Name = "Mocambique"
+                Name = "Mozambique"
             },
             new City
             {
                 Id = 28,
-                Name = "Kapstaden"
+                Name = "Capetown"
             },
             new City
             {
                 Id = 29,
-                Name = "Zanzibar"
+                Name = "Daressalam"
             },
             new City
             {
                 Id = 30,
-                Name = "Tanger"
+                Name = "Tangier"
             },
             new City
             {
