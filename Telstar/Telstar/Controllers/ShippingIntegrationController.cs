@@ -43,7 +43,7 @@ namespace Telstar.Controllers
             // TODO: Change the return type to IEnumerable<model with retun body like nodes, total price, total time
 
             Models.Integration.Costs cost = new Models.Integration.Costs();
-            var reqPrice = result.GetPrice() * 7.08 * 1.05;
+            var reqPrice = result.GetPrice() * (decimal)7.08 * (decimal)1.05;
             cost.Price = reqPrice.ToString();
             cost.Time = (float)result.GetTravelTime();
             return cost;

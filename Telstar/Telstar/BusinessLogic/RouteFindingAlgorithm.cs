@@ -100,7 +100,7 @@ public class ParcelRoute : IComparable
             + (LiveAnimals ? initialPrice * 0.5 : 0)
             + (RefrigeratedGoods ? initialPrice * 0.1 : 0);
         
-        return Math.Round(price);
+        return (decimal)Math.Round(price);
     }
 
     public decimal GetAPICallPrice()
