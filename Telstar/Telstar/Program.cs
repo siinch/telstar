@@ -1,11 +1,15 @@
 using Telstar;
+using Telstar.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddSession();
+
+builder.Services.AddScoped<IShippingIntegrationService, ShippingIntegrationService>();
 
 builder.Services.AddMvc();
 
@@ -25,9 +29,15 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Routing}/{action=Index}/{id?}");
+
+
 app.UseAuthorization();
 
-app.MapRazorPages();
+//app.MapRazorPages();
+app.MapControllers();
 
 app.UseSession();
 

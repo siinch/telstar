@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Security.Cryptography;
 
 namespace Telstar.Pages
 {
-    public class IndexModel : PageModel
+    public class LoginModel
     {
         [BindProperty]
         public string Username { get; set; }
@@ -13,21 +12,16 @@ namespace Telstar.Pages
         [BindProperty]
         public string Password { get; set; }
 
-        public string Msg { get; set; }
+        public string Msg { get; set; } = "test";
 
-        private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
-        {
-            _logger = logger;
-        }
+        private readonly ILogger<LoginModel> _logger;
 
         public void OnGet()
         {
 
         }
 
-        public IActionResult OnPost()
+        /*public IActionResult OnPost()
         {
 
             byte[] salt =
@@ -57,6 +51,6 @@ namespace Telstar.Pages
                 Msg = "Invalid";
                 return Page();
             }
-        }
+        }*/
     }
 }
