@@ -11,7 +11,6 @@ public class SearchModel
     public double Height { set; get; }
     public double Length { set; get; }
     public Boolean Recommended { get; set; }
-    public bool Weapons { get; set; }
     public bool LiveAnimals { get; set; }
     public bool CautiousParcels { get; set; }
     public bool RefrigeratedGoods { get; set; }
