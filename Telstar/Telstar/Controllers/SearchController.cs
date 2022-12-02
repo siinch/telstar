@@ -20,7 +20,7 @@ public class SearchController : Controller
             var destinationCity = _cityRepo.GetCityByName(model.DestinationCity);
             var result = _algorithm.CalculateRoute(originCity, destinationCity);
             if (result == null) throw new NullReferenceException();
-            result.RecommendedShipping = true;
+            result.RecommendedShipping = model.Recommended;
             return View("RouteResults", new RouteResultsModel(result, result, result));
         }
         catch (Exception e)
