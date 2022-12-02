@@ -22,6 +22,9 @@ public class LoginController : Controller
 
         var hash = "8RsZqXWzavEFE7HziNpj5We+MM+0Tjjx9PaXHkFitJ8=";
 
+        if(loginModel.Password == null)
+               return View("Login");
+
         // derive a 256-bit subkey (use HMACSHA256 with 100,000 iterations)
         string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
             password: loginModel.Password,
@@ -32,12 +35,13 @@ public class LoginController : Controller
 
 
 
-        if (hash.Equals(hashed))
+        if (hash.Equals(hashed) && loginModel.Username != null)
         {
             HttpContext.Session.SetString("username", loginModel.Username);
             return View("SearchRoutes");
         }
        
+        HttpContext.Session.Clear();
         return View("Login");
     }
 }

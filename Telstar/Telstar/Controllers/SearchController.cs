@@ -14,6 +14,8 @@ public class SearchController : Controller
     [Route("Search")] 
     public IActionResult CalculateRoutes(SearchModel model)
     {
+        if(HttpContext.Session.GetString("username") == null)
+            return View("Login");
         try
         {
             var originCity = _cityRepo.GetCityByName(model.OriginCity);

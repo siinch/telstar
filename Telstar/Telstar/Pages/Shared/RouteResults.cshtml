@@ -28,5 +28,21 @@
             <h5>@Html.DisplayFor(model => model.BestTravelTime) hours, @Html.DisplayFor(model => model.BestPrice)$</h5>
         </a>
     </div>
+    <div>
+
+        <br></br>
+        <br></br>
+        <h1>Best Route Summary</h1>
+        @foreach (var item in Model.Route.connections)
+        {
+                <h3>
+                    @Html.DisplayFor(modelItem => item.FromCity.Name)<br/>                    
+                </h3>
+                    <span>&#9660;</span>
+        }
+        <h3>
+            @Html.DisplayFor(model => model.Route.connections.Last().ToCity.Name)<br />
+        </h3>
+    </div>
 </div>
 

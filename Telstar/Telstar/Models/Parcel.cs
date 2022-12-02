@@ -6,7 +6,7 @@ namespace Telstar.Models
 
         public float Weight { get; set; } // lbs
 
-        public (float depth, float height, float width) Dimensions { get; set; } // USD
+        public (float depth, float height, float width) Dimensions { get; set; } // cm
 
         public bool RecordedDelivery { get; set; }
 

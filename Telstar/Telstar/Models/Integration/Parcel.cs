@@ -4,9 +4,9 @@
     {
         public Guid Id { get; set; }
 
-        public float Weight { get; set; }
+        public float Weight { get; set; } // kg
 
-        public (float depth, float height, float width) Dimensions { get; set; }
+        public (float depth, float height, float width) Dimensions { get; set; } // cm
 
         public bool RecordedDelivery { get; set; }
 

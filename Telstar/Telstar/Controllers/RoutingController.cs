@@ -24,6 +24,8 @@ namespace Telstar.Controllers
         [Route("Results")]
         public IActionResult RouteResultsPage(string fastestTime = "5", string fastestPrice = "90", string cheapestTime = "4", string cheapestPrice = "90", string bestTime = "4", string bestPrice = "90")
         {
+            if (HttpContext.Session.GetString("username") == null)
+                return View("Login");
             ViewData["fastestTime"] = fastestTime;
             ViewData["fastestPrice"] = fastestPrice;
             ViewData["cheapestTime"] = cheapestTime;
