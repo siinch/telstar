@@ -2,6 +2,7 @@
 using System.Globalization;
 using Telstar.BusinessLogic;
 using Telstar.Models;
+using Telstar.Pages;
 using Telstar.Repository;
 
 namespace Telstar.Controllers;
@@ -28,6 +29,7 @@ public class SearchController : Controller
             result.LiveAnimals= model.LiveAnimals;
             result.CautiousParcels = model.CautiousParcels;
             result.Weight = Math.Abs(Decimal.Round(decimal.Parse(model.Weight, CultureInfo.InvariantCulture.NumberFormat), 2));
+            if(result.Weight > (decimal)88.1849049) throw new NullReferenceException("max 88.2 lbs");
             result.Height = Math.Abs(Decimal.Round(decimal.Parse(model.Height, CultureInfo.InvariantCulture.NumberFormat), 2));
             result.Width = Math.Abs(Decimal.Round(decimal.Parse(model.Width, CultureInfo.InvariantCulture.NumberFormat), 2));
             result.Length = Math.Abs(Decimal.Round(decimal.Parse(model.Length, CultureInfo.InvariantCulture.NumberFormat), 2));
